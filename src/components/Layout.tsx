@@ -7,6 +7,7 @@ const StyledLayout = styled(MaxWidth)`
   margin: auto auto;
   background-color: ${(p) => p.theme.colors.black100};
   height: 100vh;
+  max-width: 768px;
   padding: 20px 20px;
 
   & > section {
