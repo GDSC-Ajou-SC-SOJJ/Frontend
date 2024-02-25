@@ -2,18 +2,16 @@ import Head from 'next/head';
 import Layout from '@/components/Layout';
 import styled from '@emotion/styled';
 import React from 'react';
-import MainBG from '@/assets/main-bgimage.svg';
-import GoogleIcon from '@/assets/icons/GoogleIcon.svg';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import MainFlagIcon from '@/assets/icons/MainFlagIcon.svg';
+import Image from 'next/image';
+import LoginBGImage from '@/assets/image/LoginBGImage.svg';
 
 const Main = styled.main`
   background-color: #0b0b10;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10vh;
 `;
 
 const TitleContainer = styled.div`
@@ -44,36 +42,45 @@ const SubtitleText = styled.h2`
   text-align: left;
 `;
 
-const ButtonConainer = styled.div`
-  display: flex;
-  height: 6vh;
-  gap: 5vw;
-`;
-
 const BottomContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1vh;
 `;
 
-const GoogleBtn = styled.button`
-  flex: 1;
+const InputContainer = styled.input`
+  background-color: rgba(255, 255, 255, 0.11);
+  height: 6vh;
+  border-radius: 3vh;
+  padding: 0 5vw;
+  border: 0;
+
+  color: rgba(255, 255, 255, 0.6);
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+const LoginBtn = styled.button`
+  background-color: ${(p) => p.theme.colors.green};
+  height: 6vh;
   border-radius: 3vh;
   border: 0;
+  margin: 0 2vw;
+
+  color: ${(p) => p.theme.colors.black};
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 `;
 
-const StartBtn = styled.button`
-  flex: 4;
-  border-radius: 3vh;
-  border: 0;
-`;
-
-const BackgroundWrapper = styled.div`
+const HeaderContainer = styled.div`
   display: flex;
-  justify-content: center;
-`;
-
-const FlagContainer = styled.div`
-  display: flex;
+  justify-content: space-between;
 `;
 
 export default function Home() {
@@ -88,29 +95,17 @@ export default function Home() {
         <meta property="og:description" content="SignSee" />
       </Head>
       <Main>
-        <TitleContainer>
-          <TitleText>SignSee</TitleText>
-          <SubtitleText>
-            No language barrier
-            <br />
-            for everyone
-          </SubtitleText>
-        </TitleContainer>
-        <FlagContainer>
-          <Image src={MainFlagIcon} alt="" />
-        </FlagContainer>
+        <HeaderContainer>
+          <TitleContainer>
+            <TitleText>SignSee</TitleText>
+            <SubtitleText>Login</SubtitleText>
+          </TitleContainer>
+          <Image src={LoginBGImage} alt="" />
+        </HeaderContainer>
         <BottomContainer>
-          <BackgroundWrapper>
-            <Image src={MainBG} alt="bg" />
-          </BackgroundWrapper>
-          <ButtonConainer>
-            <GoogleBtn>
-              <Image src={GoogleIcon} alt="google" />
-            </GoogleBtn>
-            <StartBtn onClick={() => router.push('/login')}>
-              Get Started
-            </StartBtn>
-          </ButtonConainer>
+          <InputContainer placeholder={'Email'} />
+          <InputContainer placeholder={'Password'} />
+          <LoginBtn onClick={() => router.push('/screen')}>Login</LoginBtn>
         </BottomContainer>
       </Main>
     </Layout>
