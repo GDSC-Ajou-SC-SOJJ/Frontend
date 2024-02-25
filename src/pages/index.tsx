@@ -47,7 +47,7 @@ const SubtitleText = styled.h2`
 const ButtonConainer = styled.div`
   display: flex;
   height: 6vh;
-  gap: 5vw;
+  gap: 3vw;
 `;
 
 const BottomContainer = styled.div`
@@ -74,6 +74,8 @@ const BackgroundWrapper = styled.div`
 
 const FlagContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Home() {
